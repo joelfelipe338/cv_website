@@ -4,6 +4,7 @@ import 'package:cv_website/modules/apresentation/widgets/linkedin_contact.dart';
 import 'package:cv_website/modules/apresentation/widgets/whatsapp_contact.dart';
 import 'package:flutter/material.dart';
 
+
 class Apresentation extends StatefulWidget {
   const Apresentation({Key? key}) : super(key: key);
 
