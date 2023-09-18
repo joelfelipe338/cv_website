@@ -1,4 +1,6 @@
+import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'modules/home/home.dart';
 
@@ -23,11 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CODEXP',
-      theme: ThemeData(
-        fontFamily: 'PatrickHand',
-        primarySwatch: Colors.blue,
-      ),
-
+      theme: LightTheme.themeData,
       home: const HomePage(),
     );
   }

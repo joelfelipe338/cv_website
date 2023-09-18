@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 String cleanText(String str) {
@@ -26,4 +27,21 @@ Future<void> launchInBrowser(Uri url) async {
     throw Exception('Could not launch $url');
 
   }
+}
+
+bool isMobileScreen(BuildContext context) {
+  return MediaQuery.of(context).size.width < 800;
+}
+
+bool isTabScreen(BuildContext context) {
+  return MediaQuery.of(context).size.width > 800 &&
+  MediaQuery.of(context).size.width < 1200;
+}
+
+bool isDesktopScreen(BuildContext context) {
+  return MediaQuery.of(context).size.width >= 1200;
+}
+
+Size screenSize(BuildContext context){
+  return MediaQuery.of(context).size;
 }
