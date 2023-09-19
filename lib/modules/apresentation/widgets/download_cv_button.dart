@@ -24,23 +24,19 @@ class _DownloadCVButtonState extends State<DownloadCVButton> {
       onTap: (){
         launchInBrowser(Uri.parse('https://drive.google.com/file/d/1mE0p8YLSvKrguWZZA0dvPzJYplbw2Fl0/view?usp=sharing'));
       },
-      child: Observer(
-        builder: (context) {
-          return Container(
-            width: 200,
-            height: 50,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: appController.activeSecondaryTheme,width: 5),
-                color: Colors.transparent
-            ),
-            child: Center(child: Text("Download CV",
-              style: TextStyle(
-                fontFamily: appController.activeFontFamily,
-                  fontWeight: FontWeight.bold, fontSize: 25, color: appController.activeSecondaryTheme),
-            )),
-          );
-        },
+      child: Container(
+        width: 200,
+        height: 50,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: appController.activeSecondaryTheme,width: 5),
+            color: Colors.transparent
+        ),
+        child: Center(child: Text("Download CV",
+          style: TextStyle(
+            fontFamily: appController.activeFontFamily,
+              fontWeight: FontWeight.bold, fontSize: 25, color: appController.activeSecondaryTheme),
+        )),
       ),
     );
   }

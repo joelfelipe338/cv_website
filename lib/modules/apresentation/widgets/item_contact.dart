@@ -24,21 +24,17 @@ class _ItemContactState extends State<ItemContact> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.onClick,
-      child: Observer(
-        builder: (context) {
-          return Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle
-            ),
-            child: Icon(
-              widget.icon,
-              size: 50,
-              color: appController.activeSecondaryTheme,
-            ),
-          );
-        },
+      child: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle
+        ),
+        child: Icon(
+          widget.icon,
+          size: 50,
+          color: appController.activeSecondaryTheme,
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_icons/flutter_app_icons.dart';
 import 'package:get_it/get_it.dart';
 import '../../controllers/app_controller.dart';
 import '../../desktop_home/desktop_home.dart';
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   late ScrollController _scrollController;
   bool _showBackToTopButton = false;
+  bool lightTheme = true;
   final appController = GetIt.I.get<AppController>();
 
   @override
@@ -58,15 +60,15 @@ class _HomePageState extends State<HomePage> {
         return Scaffold(
           // appBar: isMobileScreen(context) ?  AppBar() : null,
           // drawer: isMobileScreen(context) ? Drawer() : null,
-          backgroundColor: appController.activePrimaryTheme,
+          backgroundColor: appController.activeSecondaryTheme,
           body: SingleChildScrollView(
             controller: _scrollController,
             physics: const BouncingScrollPhysics(),
             child: DesktopHome(),
             /*child: isTabScreen(context) ? Container(
-                height: 200,
-                color: Colors.red) : isDesktopScreen(context
-            ) ? DesktopHome() :  Container(),*/
+            height: 200,
+            color: Colors.red) : isDesktopScreen(context
+        ) ? DesktopHome() :  Container(),*/
           ),
           floatingActionButton: _showBackToTopButton == false
               ? null
@@ -83,4 +85,6 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+
+
 }

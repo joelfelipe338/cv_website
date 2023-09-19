@@ -1,3 +1,5 @@
+import 'package:cv_website/desktop_home/widgets/language_button.dart';
+import 'package:cv_website/desktop_home/widgets/theme_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_icons/flutter_app_icons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -20,10 +22,8 @@ class _DesktopHomeState extends State<DesktopHome> {
 
   final appController = GetIt.I.get<AppController>();
 
-
   @override
   Widget build(BuildContext context) {
-    final _flutterAppIconsPlugin = FlutterAppIcons();
     return Container(
         color: appController.activePrimaryTheme,
         padding: const EdgeInsets.all(40),
@@ -47,22 +47,17 @@ class _DesktopHomeState extends State<DesktopHome> {
               ],
             ),
             Align(alignment: Alignment.topRight,
-            child: Observer(
-                builder: (_) {
-                  return IconButton(icon:appController.activeLightTheme ? Icon(Icons.dark_mode, color: LightTheme.secondaryTheme,) : Icon(Icons.light_mode, color: DarkTheme.secondaryTheme,), onPressed: (){
-                    _flutterAppIconsPlugin.setIcon(icon: !appController.activeLightTheme ? 'light_favicon.ico' : 'dark_favicon.ico');
-                    appController.setTheme(
-                        theme: !appController.activeLightTheme ? LightTheme.themeData : DarkTheme.themeData,
-                        primary: !appController.activeLightTheme ? LightTheme.primaryTheme : DarkTheme.primaryTheme,
-                        secondary: !appController.activeLightTheme ? LightTheme.secondaryTheme : DarkTheme.secondaryTheme,
-                        fontFamily: !appController.activeLightTheme ? LightTheme.fontFamily : DarkTheme.fontFamily,
-                        lightTheme: !appController.activeLightTheme
-                    );
-
-                  },);
-                },
-              ),)
+            child:Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                LanguageButton(),
+                SizedBox(width: 5),
+                ThemeButton(),
+              ],
+            ),)
           ],
         ));
   }
+
 }

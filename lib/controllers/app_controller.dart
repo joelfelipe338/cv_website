@@ -7,6 +7,10 @@ part 'app_controller.g.dart';
 class AppController = AppControllerBase with _$AppController;
 
 abstract class AppControllerBase with Store {
+
+  @observable
+  String activeLanguage = "PT";
+
   @observable
   bool activeLightTheme = true;
 
@@ -21,6 +25,11 @@ abstract class AppControllerBase with Store {
 
   @observable
   Color activeSecondaryTheme = LightTheme.secondaryTheme;
+
+  @action
+  void changeActiveLanguage(){
+    activeLanguage = activeLanguage == 'PT' ? 'EN' : 'PT';
+  }
 
   @action
   void setTheme({required Color primary,required Color secondary,required ThemeData theme, required String fontFamily, required bool lightTheme}){
