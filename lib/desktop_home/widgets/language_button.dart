@@ -13,18 +13,22 @@ class LanguageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: changeLanguage,
-      child: Container(
-        width: 30,
-        height: 30,
-        decoration: const BoxDecoration(shape: BoxShape.circle),
-        child: Center(
-          child: Text(getInactiveLanguage(appController.activeLanguage), style: TextStyle(
-              fontFamily: appController.activeFontFamily,
-              color: appController.activeSecondaryTheme,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-          ),),
-        ),
+      child: Observer(
+        builder: (context) {
+          return Container(
+            width: 30,
+            height: 30,
+            decoration: const BoxDecoration(shape: BoxShape.circle),
+            child: Center(
+              child: Text(getInactiveLanguage(appController.activeLanguage), style: TextStyle(
+                  fontFamily: appController.activeFontFamily,
+                  color: appController.activeSecondaryTheme,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),),
+            ),
+          );
+        },
       ),
     );
   }

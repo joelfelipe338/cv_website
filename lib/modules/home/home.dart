@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
           body: SingleChildScrollView(
             controller: _scrollController,
             physics: const BouncingScrollPhysics(),
-            child: const DesktopHome(),
+            child: DesktopHome(),
             /*child: isTabScreen(context) ? Container(
             height: 200,
             color: Colors.red) : isDesktopScreen(context

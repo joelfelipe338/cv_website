@@ -22,32 +22,38 @@ class _ApresentationState extends State<Apresentation> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(appController.activeLanguage == 'PT'
-            ? "Olá, meu nome é Joel Felipe"
-            : "Hi, my name is Joel Felipe",
-          style: appController.activeThemeData.textTheme.displayMedium,),
-        Text("Sou Desenvolvedor Mobile",
-          style:  appController.activeThemeData.textTheme.displayLarge,),
-        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod arcu id massa iaculis, a tincidunt nisi iaculis. Nulla facilisi. Duis in ullamcorper leo. Maecenas nec justo vel elit suscipit tristique. Vestibulum dapibus, ligula id tristique facilisis, tortor neque pharetra odio, ut dignissim felis risus ac neque. Proin a vehicula lectus, ac bibendum ipsum. Aenean non purus ac elit venenatis dignissim",
-          style: appController.activeThemeData.textTheme.displaySmall,),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          width: 450,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              GithubContact(),
-              WhatsappContact(),
-              LinkedinContact(),
-              DownloadCVButton(),
-            ],
-          ),
-        )
-      ],
+    return Center(child: Observer(
+      builder: (context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(appController.activeLanguage == 'PT'
+                ? "Olá, meu nome é Joel Felipe"
+                : "Hi, my name is Joel Felipe",
+              style: appController.activeThemeData.textTheme.displayMedium,),
+            Text(appController.activeLanguage == 'PT'
+                ? "Sou Desenvolvedor Mobile"
+                : "I am a Mobile Developer",
+              style:  appController.activeThemeData.textTheme.displayLarge,),
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod arcu id massa iaculis, a tincidunt nisi iaculis. Nulla facilisi. Duis in ullamcorper leo. Maecenas nec justo vel elit suscipit tristique. Vestibulum dapibus, ligula id tristique facilisis, tortor neque pharetra odio, ut dignissim felis risus ac neque. Proin a vehicula lectus, ac bibendum ipsum. Aenean non purus ac elit venenatis dignissim",
+              style: appController.activeThemeData.textTheme.displaySmall,),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              width: 450,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GithubContact(),
+                  WhatsappContact(),
+                  LinkedinContact(),
+                  DownloadCVButton(),
+                ],
+              ),
+            )
+          ],
+        );
+      },
     ));
   }
 }
