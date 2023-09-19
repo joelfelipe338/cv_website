@@ -9,13 +9,11 @@ import 'modules/home/home.dart';
 void main() {
   GetIt getIt = GetIt.I;
   getIt.registerSingleton<AppController>(AppController());
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  final appController = GetIt.I.get<AppController>();
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

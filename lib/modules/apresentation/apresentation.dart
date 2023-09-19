@@ -5,7 +5,7 @@ import 'package:cv_website/modules/apresentation/widgets/whatsapp_contact.dart';
 import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-
+import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../controllers/app_controller.dart';
 
 
@@ -25,7 +25,9 @@ class _ApresentationState extends State<Apresentation> {
     return Center(child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Olá, meu nome é Joel Felipe",
+        Text(appController.activeLanguage == 'PT'
+            ? "Olá, meu nome é Joel Felipe"
+            : "Hi, my name is Joel Felipe",
           style: appController.activeThemeData.textTheme.displayMedium,),
         Text("Sou Desenvolvedor Mobile",
           style:  appController.activeThemeData.textTheme.displayLarge,),

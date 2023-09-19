@@ -9,6 +9,22 @@ part of 'app_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AppController on AppControllerBase, Store {
+  late final _$activeLanguageAtom =
+      Atom(name: 'AppControllerBase.activeLanguage', context: context);
+
+  @override
+  String get activeLanguage {
+    _$activeLanguageAtom.reportRead();
+    return super.activeLanguage;
+  }
+
+  @override
+  set activeLanguage(String value) {
+    _$activeLanguageAtom.reportWrite(value, super.activeLanguage, () {
+      super.activeLanguage = value;
+    });
+  }
+
   late final _$activeLightThemeAtom =
       Atom(name: 'AppControllerBase.activeLightTheme', context: context);
 
@@ -94,6 +110,17 @@ mixin _$AppController on AppControllerBase, Store {
       ActionController(name: 'AppControllerBase', context: context);
 
   @override
+  void changeActiveLanguage() {
+    final _$actionInfo = _$AppControllerBaseActionController.startAction(
+        name: 'AppControllerBase.changeActiveLanguage');
+    try {
+      return super.changeActiveLanguage();
+    } finally {
+      _$AppControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setTheme(
       {required Color primary,
       required Color secondary,
@@ -117,6 +144,7 @@ mixin _$AppController on AppControllerBase, Store {
   @override
   String toString() {
     return '''
+activeLanguage: ${activeLanguage},
 activeLightTheme: ${activeLightTheme},
 activeThemeData: ${activeThemeData},
 activeFontFamily: ${activeFontFamily},
