@@ -56,16 +56,17 @@ class _HomePageState extends State<HomePage> {
     return Observer(
       builder: (_) {
         return Scaffold(
-          appBar: isMobileScreen(context) ?  AppBar() : null,
-          drawer: isMobileScreen(context) ? Drawer() : null,
+          // appBar: isMobileScreen(context) ?  AppBar() : null,
+          // drawer: isMobileScreen(context) ? Drawer() : null,
           backgroundColor: appController.activePrimaryTheme,
           body: SingleChildScrollView(
             controller: _scrollController,
             physics: const BouncingScrollPhysics(),
-            child: isTabScreen(context) ? Container(
+            child: DesktopHome(),
+            /*child: isTabScreen(context) ? Container(
                 height: 200,
                 color: Colors.red) : isDesktopScreen(context
-            ) ? DesktopHome() :  Container(),
+            ) ? DesktopHome() :  Container(),*/
           ),
           floatingActionButton: _showBackToTopButton == false
               ? null

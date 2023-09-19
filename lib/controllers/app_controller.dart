@@ -8,6 +8,9 @@ class AppController = AppControllerBase with _$AppController;
 
 abstract class AppControllerBase with Store {
   @observable
+  bool activeLightTheme = true;
+
+  @observable
   ThemeData activeThemeData = LightTheme.themeData;
 
   @observable
@@ -20,10 +23,11 @@ abstract class AppControllerBase with Store {
   Color activeSecondaryTheme = LightTheme.secondaryTheme;
 
   @action
-  void setTheme({required Color primary,required Color secondary,required ThemeData theme, required String fontFamily}){
+  void setTheme({required Color primary,required Color secondary,required ThemeData theme, required String fontFamily, required bool lightTheme}){
     activeSecondaryTheme = secondary;
     activePrimaryTheme = primary;
     activeThemeData = theme;
     activeFontFamily = fontFamily;
+    activeLightTheme = lightTheme;
   }
 }
