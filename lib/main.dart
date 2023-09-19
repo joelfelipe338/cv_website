@@ -1,32 +1,28 @@
 import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-
+import 'package:get_it/get_it.dart';
+import 'controllers/app_controller.dart';
 import 'modules/home/home.dart';
 
 
 void main() {
+  GetIt getIt = GetIt.I;
+  getIt.registerSingleton<AppController>(AppController());
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  //  Fonts:
-  //  'PatrickHand',
-  //  'Handlee',
-  //  'QuickSand',
-  //  'Shadow'
+  final appController = GetIt.I.get<AppController>();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CODEXP',
-      theme: LightTheme.themeData,
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }

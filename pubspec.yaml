@@ -38,6 +38,10 @@ dependencies:
   material_design_icons_flutter: ^7.0.7296
   flutter_file_downloader: ^1.1.2
   flutter_native_splash: ^2.2.9
+  flutter_app_icons: ^0.0.8
+  mobx: ^2.0.5
+  flutter_mobx: ^2.0.2
+  get_it: ^7.2.0
 
 flutter_native_splash:
   image: assets/images/loading.png
@@ -55,6 +59,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_web_compilers: ^3.2.6
   build_runner: ^2.3.3
+  mobx_codegen: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -75,15 +80,9 @@ flutter:
     - family: PatrickHand
       fonts:
           - asset: assets/fonts/PatrickHand-Regular.ttf
-    - family: Handlee
+    - family: VT323
       fonts:
-          - asset: assets/fonts/Handlee-Regular.ttf
-    - family: Shadow
-      fonts:
-          - asset: assets/fonts/ShadowsIntoLightTwo-Regular.ttf
-    - family: QuickSand
-      fonts:
-        - asset: assets/fonts/Quicksand-VariableFont_wght.ttf
+          - asset: assets/fonts/VT323-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

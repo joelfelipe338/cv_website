@@ -1,11 +1,10 @@
 import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-
+import 'package:get_it/get_it.dart';
+import '../../controllers/app_controller.dart';
 import '../../desktop_home/desktop_home.dart';
-import '../../utils/constantes.dart';
 import '../../utils/utils_functions.dart';
-import '../apresentation/apresentation.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,6 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   late ScrollController _scrollController;
   bool _showBackToTopButton = false;
+  final appController = GetIt.I.get<AppController>();
 
   @override
   void initState() {
@@ -53,29 +53,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: isMobileScreen(context) ?  AppBar() : null,
-      drawer: isMobileScreen(context) ? Drawer() : null,
-      backgroundColor: LightTheme.primatyTheme,
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        physics: const BouncingScrollPhysics(),
-        child: isTabScreen(context) ? Container(
-            height: 200,
-            color: Colors.red) : isDesktopScreen(context
-        ) ? DesktopHome() :  Container(),
-      ),
-      floatingActionButton: _showBackToTopButton == false
-          ? null
-          : FloatingActionButton(
-        onPressed: _scrollToTop,
-        tooltip: 'Go to top',
-        backgroundColor: LightTheme.primatyTheme,
-        foregroundColor: Colors.black,
-        child: const Icon(
-          Icons.arrow_upward_rounded,
-        ),
-      ),
+    return Observer(
+      builder: (_) {
+        return Scaffold(
+          appBar: isMobileScreen(context) ?  AppBar() : null,
+          drawer: isMobileScreen(context) ? Drawer() : null,
+          backgroundColor: appController.activePrimaryTheme,
+          body: SingleChildScrollView(
+            controller: _scrollController,
+            physics: const BouncingScrollPhysics(),
+            child: isTabScreen(context) ? Container(
+                height: 200,
+                color: Colors.red) : isDesktopScreen(context
+            ) ? DesktopHome() :  Container(),
+          ),
+          floatingActionButton: _showBackToTopButton == false
+              ? null
+              : FloatingActionButton(
+            onPressed: _scrollToTop,
+            tooltip: 'Go to top',
+            backgroundColor: LightTheme.primaryTheme,
+            foregroundColor: Colors.black,
+            child: const Icon(
+              Icons.arrow_upward_rounded,
+            ),
+          ),
+        );
+      },
     );
   }
 }
