@@ -50,7 +50,7 @@ class _DesktopHomeState extends State<DesktopHome> {
             child: Observer(
                 builder: (_) {
                   return IconButton(icon:appController.activeLightTheme ? Icon(Icons.dark_mode, color: LightTheme.secondaryTheme,) : Icon(Icons.light_mode, color: DarkTheme.secondaryTheme,), onPressed: (){
-                    _flutterAppIconsPlugin.setIcon(icon: appController.activeLightTheme ? 'light_favicon.ico' : 'dark_favicon.ico');
+                    _flutterAppIconsPlugin.setIcon(icon: !appController.activeLightTheme ? 'light_favicon.ico' : 'dark_favicon.ico');
                     appController.setTheme(
                         theme: !appController.activeLightTheme ? LightTheme.themeData : DarkTheme.themeData,
                         primary: !appController.activeLightTheme ? LightTheme.primaryTheme : DarkTheme.primaryTheme,
