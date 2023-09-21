@@ -106,6 +106,54 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$myNameAtom =
+      Atom(name: 'AppControllerBase.myName', context: context);
+
+  @override
+  String get myName {
+    _$myNameAtom.reportRead();
+    return super.myName;
+  }
+
+  @override
+  set myName(String value) {
+    _$myNameAtom.reportWrite(value, super.myName, () {
+      super.myName = value;
+    });
+  }
+
+  late final _$myProffisionAtom =
+      Atom(name: 'AppControllerBase.myProffision', context: context);
+
+  @override
+  String get myProffision {
+    _$myProffisionAtom.reportRead();
+    return super.myProffision;
+  }
+
+  @override
+  set myProffision(String value) {
+    _$myProffisionAtom.reportWrite(value, super.myProffision, () {
+      super.myProffision = value;
+    });
+  }
+
+  late final _$myDescriptionAtom =
+      Atom(name: 'AppControllerBase.myDescription', context: context);
+
+  @override
+  String get myDescription {
+    _$myDescriptionAtom.reportRead();
+    return super.myDescription;
+  }
+
+  @override
+  set myDescription(String value) {
+    _$myDescriptionAtom.reportWrite(value, super.myDescription, () {
+      super.myDescription = value;
+    });
+  }
+
   late final _$AppControllerBaseActionController =
       ActionController(name: 'AppControllerBase', context: context);
 
@@ -149,7 +197,10 @@ activeLightTheme: ${activeLightTheme},
 activeThemeData: ${activeThemeData},
 activeFontFamily: ${activeFontFamily},
 activePrimaryTheme: ${activePrimaryTheme},
-activeSecondaryTheme: ${activeSecondaryTheme}
+activeSecondaryTheme: ${activeSecondaryTheme},
+myName: ${myName},
+myProffision: ${myProffision},
+myDescription: ${myDescription}
     ''';
   }
 }

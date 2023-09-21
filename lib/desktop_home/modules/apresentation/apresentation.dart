@@ -1,12 +1,12 @@
-import 'package:cv_website/modules/apresentation/widgets/download_cv_button.dart';
-import 'package:cv_website/modules/apresentation/widgets/github_contact.dart';
-import 'package:cv_website/modules/apresentation/widgets/linkedin_contact.dart';
-import 'package:cv_website/modules/apresentation/widgets/whatsapp_contact.dart';
+import 'package:cv_website/desktop_home/modules/apresentation/widgets/download_cv_button.dart';
+import 'package:cv_website/desktop_home/modules/apresentation/widgets/github_contact.dart';
+import 'package:cv_website/desktop_home/modules/apresentation/widgets/linkedin_contact.dart';
+import 'package:cv_website/desktop_home/modules/apresentation/widgets/whatsapp_contact.dart';
 import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../controllers/app_controller.dart';
+import '../../../controllers/app_controller.dart';
 
 
 class Apresentation extends StatefulWidget {
@@ -27,15 +27,11 @@ class _ApresentationState extends State<Apresentation> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(appController.activeLanguage == 'PT'
-                ? "Olá, meu nome é Joel Felipe"
-                : "Hi, my name is Joel Felipe",
+            Text(appController.myName,
               style: appController.activeThemeData.textTheme.displayMedium,),
-            Text(appController.activeLanguage == 'PT'
-                ? "Sou Desenvolvedor Mobile"
-                : "I am a Mobile Developer",
+            Text(appController.myProffision,
               style:  appController.activeThemeData.textTheme.displayLarge,),
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod arcu id massa iaculis, a tincidunt nisi iaculis. Nulla facilisi. Duis in ullamcorper leo. Maecenas nec justo vel elit suscipit tristique. Vestibulum dapibus, ligula id tristique facilisis, tortor neque pharetra odio, ut dignissim felis risus ac neque. Proin a vehicula lectus, ac bibendum ipsum. Aenean non purus ac elit venenatis dignissim",
+            Text(appController.myDescription,
               style: appController.activeThemeData.textTheme.displaySmall,),
             Container(
               padding: EdgeInsets.symmetric(vertical: 10),

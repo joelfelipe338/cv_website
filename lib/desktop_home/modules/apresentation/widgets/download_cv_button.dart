@@ -3,9 +3,8 @@ import 'package:flutter_app_icons/flutter_app_icons.dart';
 import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import '../../../controllers/app_controller.dart';
-import '../../../utils/theme.dart';
-import '../../../utils/utils_functions.dart';
+import '../../../../controllers/app_controller.dart';
+import '../../../../utils/utils_functions.dart';
 
 class DownloadCVButton extends StatefulWidget {
   const DownloadCVButton({Key? key}) : super(key: key);

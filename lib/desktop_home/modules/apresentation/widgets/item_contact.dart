@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../controllers/app_controller.dart';
+import '../../../../controllers/app_controller.dart';
 
 class ItemContact extends StatefulWidget {
 

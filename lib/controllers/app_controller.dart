@@ -2,6 +2,9 @@ import 'package:cv_website/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
+import '../utils/languages/english.dart';
+import '../utils/languages/portuguese.dart';
+
 part 'app_controller.g.dart';
 
 class AppController = AppControllerBase with _$AppController;
@@ -26,9 +29,28 @@ abstract class AppControllerBase with Store {
   @observable
   Color activeSecondaryTheme = LightTheme.secondaryTheme;
 
+  @observable
+  String myName = TextDataPT.myName;
+
+  @observable
+  String myProffision = TextDataPT.myProffision;
+
+  @observable
+  String myDescription = TextDataPT.myDescription;
+
   @action
   void changeActiveLanguage(){
     activeLanguage = activeLanguage == 'PT' ? 'EN' : 'PT';
+    if(activeLanguage == 'PT'){
+      myName = TextDataPT.myName;
+      myDescription = TextDataPT.myDescription;
+      myProffision = TextDataPT.myProffision;
+    }else if(activeLanguage == 'EN'){
+      myName = TextDataEN.myName;
+      myDescription = TextDataEN.myDescription;
+      myProffision = TextDataEN.myProffision;
+    }
+
   }
 
   @action
