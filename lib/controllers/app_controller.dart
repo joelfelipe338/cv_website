@@ -38,6 +38,9 @@ abstract class AppControllerBase with Store {
   @observable
   String myDescription = TextDataPT.myDescription;
 
+  @observable
+  String websiteProgress = TextDataPT.websiteProgress;
+
   @action
   void changeActiveLanguage(){
     activeLanguage = activeLanguage == 'PT' ? 'EN' : 'PT';
@@ -45,10 +48,12 @@ abstract class AppControllerBase with Store {
       myName = TextDataPT.myName;
       myDescription = TextDataPT.myDescription;
       myProffision = TextDataPT.myProffision;
+      websiteProgress = TextDataPT.websiteProgress;
     }else if(activeLanguage == 'EN'){
       myName = TextDataEN.myName;
       myDescription = TextDataEN.myDescription;
       myProffision = TextDataEN.myProffision;
+      websiteProgress = TextDataEN.websiteProgress;
     }
 
   }

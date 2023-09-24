@@ -154,6 +154,22 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$websiteProgressAtom =
+      Atom(name: 'AppControllerBase.websiteProgress', context: context);
+
+  @override
+  String get websiteProgress {
+    _$websiteProgressAtom.reportRead();
+    return super.websiteProgress;
+  }
+
+  @override
+  set websiteProgress(String value) {
+    _$websiteProgressAtom.reportWrite(value, super.websiteProgress, () {
+      super.websiteProgress = value;
+    });
+  }
+
   late final _$AppControllerBaseActionController =
       ActionController(name: 'AppControllerBase', context: context);
 
@@ -200,7 +216,8 @@ activePrimaryTheme: ${activePrimaryTheme},
 activeSecondaryTheme: ${activeSecondaryTheme},
 myName: ${myName},
 myProffision: ${myProffision},
-myDescription: ${myDescription}
+myDescription: ${myDescription},
+websiteProgress: ${websiteProgress}
     ''';
   }
 }

@@ -51,13 +51,24 @@ class _DesktopHomeState extends State<DesktopHome> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                websiteInProgress(),
+                const SizedBox(width: 5),
                 LanguageButton(),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 ThemeButton(),
               ],
             ),)
           ],
         ));
+  }
+
+  Widget websiteInProgress(){
+    return Observer(
+      builder: (context) {
+        return Text("(${appController.websiteProgress})",
+          style: appController.activeThemeData.textTheme.displayMedium,);
+      },
+    );
   }
 
 }
