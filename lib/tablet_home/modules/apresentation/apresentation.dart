@@ -3,20 +3,21 @@ import 'package:cv_website/desktop_home/modules/apresentation/widgets/github_con
 import 'package:cv_website/desktop_home/modules/apresentation/widgets/linkedin_contact.dart';
 import 'package:cv_website/desktop_home/modules/apresentation/widgets/whatsapp_contact.dart';
 import 'package:cv_website/utils/theme.dart';
+import 'package:cv_website/utils/utils_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../controllers/app_controller.dart';
 
 
-class ApresentationDesktop extends StatefulWidget {
-  const ApresentationDesktop({Key? key}) : super(key: key);
+class ApresentationTablet extends StatefulWidget {
+  const ApresentationTablet({Key? key}) : super(key: key);
 
   @override
-  State<ApresentationDesktop> createState() => _ApresentationDesktopState();
+  State<ApresentationTablet> createState() => _ApresentationTabletState();
 }
 
-class _ApresentationDesktopState extends State<ApresentationDesktop> {
+class _ApresentationTabletState extends State<ApresentationTablet> {
 
   final appController = GetIt.I.get<AppController>();
 
@@ -25,7 +26,7 @@ class _ApresentationDesktopState extends State<ApresentationDesktop> {
     return Center(child: Observer(
       builder: (context) {
         return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(appController.myName,
               style: appController.activeThemeData.textTheme.displayMedium,),
@@ -35,15 +36,17 @@ class _ApresentationDesktopState extends State<ApresentationDesktop> {
               style: appController.activeThemeData.textTheme.displaySmall,),
             Container(
               padding: const EdgeInsets.all(10),
-              width: 450,
+              width: screenSize(context).width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(width:screenSize(context).width * 0.1 ,),
                   GithubContact(),
                   WhatsappContact(),
                   LinkedinContact(),
                   DownloadCVButton(),
+                  SizedBox(width:screenSize(context).width * 0.1 ,),
                 ],
               ),
             )

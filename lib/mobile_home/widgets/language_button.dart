@@ -4,8 +4,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../controllers/app_controller.dart';
 import '../controllers/controller.dart';
 
-class LanguageButtonDesktop extends StatelessWidget {
-  LanguageButtonDesktop({Key? key}) : super(key: key);
+class LanguageButtonMobile extends StatelessWidget {
+  LanguageButtonMobile({Key? key}) : super(key: key);
 
   final appController = GetIt.I.get<AppController>();
 
@@ -16,14 +16,14 @@ class LanguageButtonDesktop extends StatelessWidget {
       child: Observer(
         builder: (context) {
           return Container(
-            width: 30,
-            height: 30,
+            width: 20,
+            height: 20,
             decoration: const BoxDecoration(shape: BoxShape.circle),
             child: Center(
               child: Text(getInactiveLanguage(appController.activeLanguage), style: TextStyle(
                   fontFamily: appController.activeFontFamily,
                   color: appController.activeSecondaryTheme,
-                  fontSize: 20,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold
               ),),
             ),

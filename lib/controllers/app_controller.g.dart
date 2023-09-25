@@ -170,6 +170,22 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$skillTreeAtom =
+      Atom(name: 'AppControllerBase.skillTree', context: context);
+
+  @override
+  String get skillTree {
+    _$skillTreeAtom.reportRead();
+    return super.skillTree;
+  }
+
+  @override
+  set skillTree(String value) {
+    _$skillTreeAtom.reportWrite(value, super.skillTree, () {
+      super.skillTree = value;
+    });
+  }
+
   late final _$AppControllerBaseActionController =
       ActionController(name: 'AppControllerBase', context: context);
 
@@ -217,7 +233,8 @@ activeSecondaryTheme: ${activeSecondaryTheme},
 myName: ${myName},
 myProffision: ${myProffision},
 myDescription: ${myDescription},
-websiteProgress: ${websiteProgress}
+websiteProgress: ${websiteProgress},
+skillTree: ${skillTree}
     ''';
   }
 }

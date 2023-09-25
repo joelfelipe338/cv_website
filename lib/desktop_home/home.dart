@@ -1,13 +1,11 @@
+import 'package:cv_website/desktop_home/modules/skill_tree/skill_tree.dart';
 import 'package:cv_website/desktop_home/widgets/language_button.dart';
 import 'package:cv_website/desktop_home/widgets/theme_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_icons/flutter_app_icons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
 import '../controllers/app_controller.dart';
-import '../utils/constantes.dart';
-import '../utils/theme.dart';
 import '../utils/utils_functions.dart';
 import 'modules/apresentation/apresentation.dart';
 
@@ -26,25 +24,28 @@ class _DesktopHomeState extends State<DesktopHome> {
   Widget build(BuildContext context) {
     return Container(
         color: appController.activePrimaryTheme,
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(10),
         child: Stack(
           children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(child: Container(
-                      child: Apresentation(),
-                    ),),
-                    Expanded(child: Container()),
-                  ],
-                ),
-                Container(
-                  height: screenSize(context).height * 0.7,
-                  width: double.infinity,
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(child: Container(
+                        child: ApresentationDesktop(),
+                      ),),
+                      SkillTreeDesktop(),
+                    ],
+                  ),
+                  Container(
+                    height: screenSize(context).height * 0.7,
+                    width: double.infinity,
 
-                )
-              ],
+                  )
+                ],
+              ),
             ),
             Align(alignment: Alignment.topRight,
             child:Row(
@@ -53,9 +54,9 @@ class _DesktopHomeState extends State<DesktopHome> {
               children: [
                 websiteInProgress(),
                 const SizedBox(width: 5),
-                LanguageButton(),
+                LanguageButtonDesktop(),
                 const SizedBox(width: 5),
-                ThemeButton(),
+                ThemeButtonDesktop(),
               ],
             ),)
           ],

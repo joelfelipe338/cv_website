@@ -6,8 +6,8 @@ import '../../utils/theme.dart';
 import '../controllers/controller.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class ThemeButtonDesktop extends StatelessWidget {
-  ThemeButtonDesktop({Key? key}) : super(key: key);
+class ThemeButtonTablet extends StatelessWidget {
+  ThemeButtonTablet({Key? key}) : super(key: key);
 
   final appController = GetIt.I.get<AppController>();
 

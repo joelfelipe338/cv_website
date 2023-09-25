@@ -6,8 +6,8 @@ import '../../utils/theme.dart';
 import '../controllers/controller.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class ThemeButtonDesktop extends StatelessWidget {
-  ThemeButtonDesktop({Key? key}) : super(key: key);
+class ThemeButtonMobile extends StatelessWidget {
+  ThemeButtonMobile({Key? key}) : super(key: key);
 
   final appController = GetIt.I.get<AppController>();
 
@@ -16,8 +16,8 @@ class ThemeButtonDesktop extends StatelessWidget {
     return Observer(
       builder: (context) {
         return IconButton(icon:appController.activeLightTheme ?
-        Icon(Icons.dark_mode, color: LightTheme.secondaryTheme,size: 24,)
-            : Icon(Icons.light_mode, color: DarkTheme.secondaryTheme,size: 24),
+        Icon(Icons.dark_mode, color: LightTheme.secondaryTheme,size: 20,)
+            : Icon(Icons.light_mode, color: DarkTheme.secondaryTheme,size: 20),
           onPressed: changeTheme,);
       },
     );

@@ -1,4 +1,7 @@
+import 'package:cv_website/mobile_home/mobile_home.dart';
+import 'package:cv_website/tablet_home/home.dart';
 import 'package:cv_website/utils/theme.dart';
+import 'package:cv_website/utils/utils_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -83,11 +86,10 @@ class _HomePageState extends State<HomePage> {
           body: SingleChildScrollView(
             controller: _scrollController,
             physics: const NeverScrollableScrollPhysics(),
-            child: DesktopHome(),
-            /*child: isTabScreen(context) ? Container(
-            height: 200,
-            color: Colors.red) : isDesktopScreen(context
-        ) ? DesktopHome() :  Container(),*/
+            // child: DesktopHome(),
+            child: isDesktopScreen(context)
+                ? DesktopHome()
+                : isTabScreen(context) ? TabletHome() : MobileHome(),
           ),
           floatingActionButton: _showBackToTopButton == false
               ? null

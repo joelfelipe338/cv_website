@@ -4,8 +4,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../controllers/app_controller.dart';
 import '../controllers/controller.dart';
 
-class LanguageButtonDesktop extends StatelessWidget {
-  LanguageButtonDesktop({Key? key}) : super(key: key);
+class LanguageButtonTablet extends StatelessWidget {
+  LanguageButtonTablet({Key? key}) : super(key: key);
 
   final appController = GetIt.I.get<AppController>();
 
