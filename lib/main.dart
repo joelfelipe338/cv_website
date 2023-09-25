@@ -82,10 +82,10 @@ class _HomePageState extends State<HomePage> {
         return Scaffold(
           // appBar: isMobileScreen(context) ?  AppBar() : null,
           // drawer: isMobileScreen(context) ? Drawer() : null,
-          backgroundColor: appController.activeSecondaryTheme,
+          backgroundColor: appController.activePrimaryTheme,
           body: SingleChildScrollView(
             controller: _scrollController,
-            physics: const NeverScrollableScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             // child: DesktopHome(),
             child: isDesktopScreen(context)
                 ? DesktopHome()

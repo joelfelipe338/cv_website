@@ -23,7 +23,6 @@ class _DesktopHomeState extends State<DesktopHome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: appController.activePrimaryTheme,
         padding: const EdgeInsets.all(10),
         child: Stack(
           children: [

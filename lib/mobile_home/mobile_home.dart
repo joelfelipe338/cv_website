@@ -21,7 +21,6 @@ class _MobileHomeState extends State<MobileHome> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: appController.activePrimaryTheme,
         padding: const EdgeInsets.all(10),
         child: Stack(
           children: [
