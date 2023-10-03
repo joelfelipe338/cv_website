@@ -33,6 +33,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                   Row(
                     children: [
                       Expanded(child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: ApresentationDesktop(),
                       ),),
                       SkillTreeDesktop(),

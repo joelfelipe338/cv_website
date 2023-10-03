@@ -9,6 +9,22 @@ part of 'app_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AppController on AppControllerBase, Store {
+  late final _$skillListAtom =
+      Atom(name: 'AppControllerBase.skillList', context: context);
+
+  @override
+  List<Map<String, dynamic>> get skillList {
+    _$skillListAtom.reportRead();
+    return super.skillList;
+  }
+
+  @override
+  set skillList(List<Map<String, dynamic>> value) {
+    _$skillListAtom.reportWrite(value, super.skillList, () {
+      super.skillList = value;
+    });
+  }
+
   late final _$activeLanguageAtom =
       Atom(name: 'AppControllerBase.activeLanguage', context: context);
 
@@ -186,6 +202,23 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$floatingActionButtonTextAtom = Atom(
+      name: 'AppControllerBase.floatingActionButtonText', context: context);
+
+  @override
+  String get floatingActionButtonText {
+    _$floatingActionButtonTextAtom.reportRead();
+    return super.floatingActionButtonText;
+  }
+
+  @override
+  set floatingActionButtonText(String value) {
+    _$floatingActionButtonTextAtom
+        .reportWrite(value, super.floatingActionButtonText, () {
+      super.floatingActionButtonText = value;
+    });
+  }
+
   late final _$AppControllerBaseActionController =
       ActionController(name: 'AppControllerBase', context: context);
 
@@ -224,6 +257,7 @@ mixin _$AppController on AppControllerBase, Store {
   @override
   String toString() {
     return '''
+skillList: ${skillList},
 activeLanguage: ${activeLanguage},
 activeLightTheme: ${activeLightTheme},
 activeThemeData: ${activeThemeData},
@@ -234,7 +268,8 @@ myName: ${myName},
 myProffision: ${myProffision},
 myDescription: ${myDescription},
 websiteProgress: ${websiteProgress},
-skillTree: ${skillTree}
+skillTree: ${skillTree},
+floatingActionButtonText: ${floatingActionButtonText}
     ''';
   }
 }

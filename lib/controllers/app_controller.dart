@@ -12,6 +12,9 @@ class AppController = AppControllerBase with _$AppController;
 abstract class AppControllerBase with Store {
 
   @observable
+  List<Map<String, dynamic>> skillList = TextDataPT.skillList;
+
+  @observable
   String activeLanguage = "PT";
 
   @observable
@@ -44,22 +47,20 @@ abstract class AppControllerBase with Store {
   @observable
   String skillTree = TextDataPT.skillTree;
 
+  @observable
+  String floatingActionButtonText = TextDataPT.floatingActionButtonText;
+
   @action
   void changeActiveLanguage(){
     activeLanguage = activeLanguage == 'PT' ? 'EN' : 'PT';
-    if(activeLanguage == 'PT'){
-      myName = TextDataPT.myName;
-      myDescription = TextDataPT.myDescription;
-      myProffision = TextDataPT.myProffision;
-      websiteProgress = TextDataPT.websiteProgress;
-      skillTree = TextDataPT.skillTree;
-    }else if(activeLanguage == 'EN'){
-      myName = TextDataEN.myName;
-      myDescription = TextDataEN.myDescription;
-      myProffision = TextDataEN.myProffision;
-      websiteProgress = TextDataEN.websiteProgress;
-      skillTree = TextDataEN.skillTree;
-    }
+
+    Map<String,Function()> changeLanguage = {
+      "PT": usePT,
+      "EN": useEN,
+    };
+
+    changeLanguage[activeLanguage]!();
+
 
   }
 
@@ -70,5 +71,25 @@ abstract class AppControllerBase with Store {
     activeThemeData = theme;
     activeFontFamily = fontFamily;
     activeLightTheme = lightTheme;
+  }
+
+  void useEN(){
+    myName = TextDataEN.myName;
+    myDescription = TextDataEN.myDescription;
+    myProffision = TextDataEN.myProffision;
+    websiteProgress = TextDataEN.websiteProgress;
+    skillTree = TextDataEN.skillTree;
+    skillList = TextDataEN.skillList;
+    floatingActionButtonText = TextDataEN.floatingActionButtonText;
+  }
+
+  void usePT(){
+    myName = TextDataPT.myName;
+    myDescription = TextDataPT.myDescription;
+    myProffision = TextDataPT.myProffision;
+    websiteProgress = TextDataPT.websiteProgress;
+    skillTree = TextDataPT.skillTree;
+    skillList = TextDataPT.skillList;
+    floatingActionButtonText = TextDataPT.floatingActionButtonText;
   }
 }

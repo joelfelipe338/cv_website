@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../controllers/app_controller.dart';
+import '../../../desktop_home/modules/skill_tree/widgets/skill_item.dart';
 import '../../../utils/utils_functions.dart';
 
 class SkillTreeTablet extends StatelessWidget {
@@ -21,8 +22,10 @@ class SkillTreeTablet extends StatelessWidget {
           ),
           width: screenSize(context).width * 0.8,
           height: screenSize(context).height * 0.4,
-          child: Center(
-            child: Text(appController.skillTree, style: appController.activeThemeData.textTheme.displayMedium,),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: appController.skillList.map((item)
+            => SkillItem(status: item['status'],title: item['title'],),).toList(),
           ),
         );
       },

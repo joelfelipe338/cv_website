@@ -1,3 +1,4 @@
+import 'package:cv_website/desktop_home/modules/skill_tree/widgets/skill_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -15,16 +16,18 @@ class SkillTreeDesktop extends StatelessWidget {
       child: Observer(
         builder: (context) {
           return Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 30),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: appController.activeSecondaryTheme, width: 4)
             ),
             width: screenSize(context).width * 0.8,
             height: screenSize(context).height * 0.4,
-            child: Center(
-              child: Text(appController.skillTree, style: appController.activeThemeData.textTheme.displayMedium,),
-            ),
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
+             children: appController.skillList.map((item)
+             => SkillItem(status: item['status'],title: item['title'],),).toList(),
+           ),
           );
         },
       ),

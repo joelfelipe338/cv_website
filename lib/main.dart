@@ -95,9 +95,10 @@ class _HomePageState extends State<HomePage> {
               ? null
               : FloatingActionButton(
             onPressed: _scrollToTop,
-            tooltip: 'Go to top',
-            backgroundColor: LightTheme.primaryTheme,
-            foregroundColor: Colors.black,
+            tooltip: appController.floatingActionButtonText,
+            shape: RoundedRectangleBorder(side: BorderSide(width: 3,color: appController.activeSecondaryTheme),borderRadius: BorderRadius.circular(100)),
+            backgroundColor: appController.activePrimaryTheme,
+            foregroundColor: appController.activeSecondaryTheme,
             child: const Icon(
               Icons.arrow_upward_rounded,
             ),
