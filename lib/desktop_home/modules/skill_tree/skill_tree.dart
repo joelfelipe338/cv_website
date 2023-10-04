@@ -10,8 +10,14 @@ class SkillTreeDesktop extends StatelessWidget {
 
   final appController = GetIt.I.get<AppController>();
 
+
   @override
   Widget build(BuildContext context) {
+
+    List<Map<String,dynamic>> itensDone = appController.skillList.where((item) => item['status'] == ItemStatus.done).toList();
+    List<Map<String,dynamic>> itensProgress = appController.skillList.where((item) => item['status'] == ItemStatus.progress).toList();
+    List<Map<String,dynamic>> itensWaiting = appController.skillList.where((item) => item['status'] == ItemStatus.waiting).toList();
+
     return Expanded(
       child: Observer(
         builder: (context) {
@@ -22,12 +28,42 @@ class SkillTreeDesktop extends StatelessWidget {
                 border: Border.all(color: appController.activeSecondaryTheme, width: 4)
             ),
             width: screenSize(context).width * 0.8,
-            height: screenSize(context).height * 0.4,
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
-             children: appController.skillList.map((item)
-             => SkillItem(status: item['status'],title: item['title'],),).toList(),
-           ),
+            height: 300,
+            //height: screenSize(context).height * 0.4,
+           child: SingleChildScrollView(
+             child: Column(
+               children: [
+                 Row(
+                   children: [
+                   Expanded(child: Text("Feitos",textAlign: TextAlign.center,)),
+                   Expanded(child: Text("Feitos",textAlign: TextAlign.center,)),
+                   Expanded(child: Text("Feitos",textAlign: TextAlign.center,)),
+                 ],),
+                 Row(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Expanded(
+                       child: Wrap(
+                         alignment: WrapAlignment.spaceAround,
+                         children: itensDone.map((item)
+                         => SkillItem(status: item['status'],title: item['title'],),).toList(),
+                       ),
+                     ),
+                     Expanded(child: Wrap(
+                       alignment: WrapAlignment.spaceAround,
+                       children: itensProgress.map((item)
+                       => SkillItem(status: item['status'],title: item['title'],),).toList(),
+                     ),),
+                     Expanded(child:  Wrap(
+                       alignment: WrapAlignment.spaceAround,
+                       children: itensWaiting.map((item)
+                       => SkillItem(status: item['status'],title: item['title'],),).toList(),
+                     ),)
+                   ],
+                 ),
+               ],
+             )
+           )
           );
         },
       ),
