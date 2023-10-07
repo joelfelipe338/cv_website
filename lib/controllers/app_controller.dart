@@ -48,6 +48,15 @@ abstract class AppControllerBase with Store {
   String skillTree = TextDataPT.skillTree;
 
   @observable
+  String acquiredSkills = TextDataPT.acquiredSkills;
+
+  @observable
+  String developingSkills = TextDataPT.developingSkills;
+
+  @observable
+  String futureSkills = TextDataPT.futureSkills;
+
+  @observable
   String floatingActionButtonText = TextDataPT.floatingActionButtonText;
 
   @action
@@ -79,6 +88,9 @@ abstract class AppControllerBase with Store {
     myProffision = TextDataEN.myProffision;
     websiteProgress = TextDataEN.websiteProgress;
     skillTree = TextDataEN.skillTree;
+    acquiredSkills = TextDataEN.acquiredSkills;
+    developingSkills = TextDataEN.developingSkills;
+    futureSkills = TextDataEN.futureSkills;
     skillList = TextDataEN.skillList;
     floatingActionButtonText = TextDataEN.floatingActionButtonText;
   }
@@ -89,6 +101,9 @@ abstract class AppControllerBase with Store {
     myProffision = TextDataPT.myProffision;
     websiteProgress = TextDataPT.websiteProgress;
     skillTree = TextDataPT.skillTree;
+    acquiredSkills = TextDataPT.acquiredSkills;
+    developingSkills = TextDataPT.developingSkills;
+    futureSkills = TextDataPT.futureSkills;
     skillList = TextDataPT.skillList;
     floatingActionButtonText = TextDataPT.floatingActionButtonText;
   }

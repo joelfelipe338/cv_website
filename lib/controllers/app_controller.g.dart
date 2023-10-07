@@ -202,6 +202,54 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$acquiredSkillsAtom =
+      Atom(name: 'AppControllerBase.acquiredSkills', context: context);
+
+  @override
+  String get acquiredSkills {
+    _$acquiredSkillsAtom.reportRead();
+    return super.acquiredSkills;
+  }
+
+  @override
+  set acquiredSkills(String value) {
+    _$acquiredSkillsAtom.reportWrite(value, super.acquiredSkills, () {
+      super.acquiredSkills = value;
+    });
+  }
+
+  late final _$developingSkillsAtom =
+      Atom(name: 'AppControllerBase.developingSkills', context: context);
+
+  @override
+  String get developingSkills {
+    _$developingSkillsAtom.reportRead();
+    return super.developingSkills;
+  }
+
+  @override
+  set developingSkills(String value) {
+    _$developingSkillsAtom.reportWrite(value, super.developingSkills, () {
+      super.developingSkills = value;
+    });
+  }
+
+  late final _$futureSkillsAtom =
+      Atom(name: 'AppControllerBase.futureSkills', context: context);
+
+  @override
+  String get futureSkills {
+    _$futureSkillsAtom.reportRead();
+    return super.futureSkills;
+  }
+
+  @override
+  set futureSkills(String value) {
+    _$futureSkillsAtom.reportWrite(value, super.futureSkills, () {
+      super.futureSkills = value;
+    });
+  }
+
   late final _$floatingActionButtonTextAtom = Atom(
       name: 'AppControllerBase.floatingActionButtonText', context: context);
 
@@ -269,6 +317,9 @@ myProffision: ${myProffision},
 myDescription: ${myDescription},
 websiteProgress: ${websiteProgress},
 skillTree: ${skillTree},
+acquiredSkills: ${acquiredSkills},
+developingSkills: ${developingSkills},
+futureSkills: ${futureSkills},
 floatingActionButtonText: ${floatingActionButtonText}
     ''';
   }
