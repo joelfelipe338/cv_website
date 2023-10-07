@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class LightTheme {
   static ThemeData themeData = ThemeData(
+    scrollbarTheme:  ScrollbarThemeData().copyWith(
+      thumbColor: MaterialStateProperty.all(secondaryTheme),
+    ),
     fontFamily: fontFamily,
     iconTheme: IconThemeData(
         color: secondaryTheme
@@ -31,6 +34,9 @@ class DarkTheme {
 
 
   static ThemeData themeData = ThemeData(
+    scrollbarTheme:  ScrollbarThemeData().copyWith(
+      thumbColor: MaterialStateProperty.all(secondaryTheme),
+    ),
     fontFamily: fontFamily,
     iconTheme: IconThemeData(
       color: secondaryTheme

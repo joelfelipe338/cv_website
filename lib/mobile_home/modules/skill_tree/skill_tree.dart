@@ -17,9 +17,7 @@ class SkillTreeMobile extends StatelessWidget {
         final _pageController = PageController(
           initialPage: 0,
         );
-        final _pageController2 = PageController(
-          initialPage: 0,
-        );
+
         List<Map<String,dynamic>> itensDone = appController.skillList.where((item) => item['status'] == ItemStatus.done).toList();
         List<Map<String,dynamic>> itensProgress = appController.skillList.where((item) => item['status'] == ItemStatus.progress).toList();
         List<Map<String,dynamic>> itensWaiting = appController.skillList.where((item) => item['status'] == ItemStatus.waiting).toList();
@@ -34,99 +32,124 @@ class SkillTreeMobile extends StatelessWidget {
                 ),
                 width: 1000,
                 height: 320,
-                child: SingleChildScrollView(
-                    child: Column(
+                child: PageView(
+                  controller: _pageController,
+                  children: [
+                    Column(
                       children: [
                         SizedBox(height: 6,),
                         Container(
-                          height: 30,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              IconButton(onPressed: (){
-                                _pageController.previousPage(
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.easeIn);
-                                _pageController2.previousPage(
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.easeIn);
-                              }, icon: Icon(Icons.arrow_back, color: appController.activeSecondaryTheme,),),
-                              Expanded(
-                                child: PageView(
-                                  controller: _pageController,
-                                  children: [
-                                    Center(
-                                      child: Container(
-                                          width: double.infinity,
-                                          child: Text(appController.acquiredSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall,)),
-                                    ),
-                                    Center(
-                                      child: Container(
-                                          width: double.infinity,
-                                          child: Text(appController.developingSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
-                                    ),
-                                    Center(
-                                      child: Container(
-                                          width: double.infinity,
-                                          child: Text(appController.futureSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
-                                    ),
-
-                                  ],
-                                ),
-                              ),
-                              IconButton(onPressed: (){
-
-                                _pageController.nextPage(
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.easeIn);
-                                _pageController2.nextPage(
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.easeIn);
-
-                              }, icon: Icon(Icons.arrow_forward, color: appController.activeSecondaryTheme,),),
-                            ],
-                          ),
-                        ),
+                            height: 30,
+                            width: double.infinity,
+                            child: Center(child: Text(appController.acquiredSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall,))),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 6.0),
                           child: Divider(color: appController.activeSecondaryTheme,thickness: 2,),
                         ),
-                        Container(
-                          height: 300,
-                          child: Row(
-                            children: [
+                        Expanded(
 
-                              Expanded(
-                                child: PageView(
-                                  controller: _pageController2,
-                                  children: [
-                                    Expanded(
-                                      child: Wrap(
-                                        alignment: WrapAlignment.spaceAround,
-                                        children: itensDone.map((item)
-                                        => SkillItem(status: item['status'],title: item['title'],),).toList(),
-                                      ),
-                                    ),
-                                    Expanded(child: Wrap(
-                                      alignment: WrapAlignment.spaceAround,
-                                      children: itensProgress.map((item)
-                                      => SkillItem(status: item['status'],title: item['title'],),).toList(),
-                                    ),),
-                                    Expanded(child:  Wrap(
-                                      alignment: WrapAlignment.spaceAround,
-                                      children: itensWaiting.map((item)
-                                      => SkillItem(status: item['status'],title: item['title'],),).toList(),
-                                    ),)
-                                  ],
+                          child: Theme(
+                            data: ThemeData(
+                              scrollbarTheme: appController.activeThemeData.scrollbarTheme,
+                            ),
+                            child: SingleChildScrollView(
+                              child: Container(
+                                width: double.infinity,
+                                child: Wrap(
+                                  alignment: WrapAlignment.spaceAround,
+                                  children: itensDone.map((item)
+                                  => SkillItem(status: item['status'],title: item['title'],),).toList(),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(height: 6,),
+                        Container(
+                          height: 30,
+                            width: double.infinity,
+                            child: Center(child: Text(appController.developingSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall))),Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                          child: Divider(color: appController.activeSecondaryTheme,thickness: 2,),
                         ),
+                        Expanded(
 
+                          child: RawScrollbar(
+                            thumbColor: Colors.red,
+                            radius: Radius.circular(16),
+                            thickness: 7,
+                            child: SingleChildScrollView(
+                              child: Container(
+                                width: double.infinity,
+                                child: Wrap(
+                                  alignment: WrapAlignment.spaceAround,
+                                  children: itensProgress.map((item)
+                                  => SkillItem(status: item['status'],title: item['title'],),).toList(),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(height: 6,),
+                        Container(
+                          height: 30,
+                            width: double.infinity,
+                            child: Center(child: Text(appController.futureSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall))),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                          child: Divider(color: appController.activeSecondaryTheme,thickness: 2,),
+                        ),
+                        Expanded(
+
+                          child: RawScrollbar(
+                            thumbColor: Colors.red,
+                            radius: Radius.circular(16),
+                            thickness: 7,
+                            child: SingleChildScrollView(
+                              child: Container(
+                                width: double.infinity,
+                                child:  Wrap(
+                                  alignment: WrapAlignment.spaceAround,
+                                  children: itensWaiting.map((item)
+                                  => SkillItem(status: item['status'],title: item['title'],),).toList(),
+                                )
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     )
+                  ],
                 )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 65.0,right: 10, left: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(onPressed: (){
+                    _pageController.previousPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
+                  }, icon: Icon(Icons.arrow_back, color: appController.activeSecondaryTheme,),),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  IconButton(onPressed: (){
+                    _pageController.nextPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
+                  }, icon: Icon(Icons.arrow_forward, color: appController.activeSecondaryTheme,),),
+                ],
+              ),
             ),
             Container(
               width: 1000,

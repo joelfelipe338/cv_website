@@ -41,7 +41,7 @@ class _ApresentationMobileState extends State<ApresentationMobile> {
               style: appController.activeThemeData.textTheme.displaySmall,),
             Container(
               padding: const EdgeInsets.all(10),
-              width: screenSize(context).width,
+              width: 400,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,

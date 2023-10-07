@@ -84,6 +84,7 @@ class _HomePageState extends State<HomePage> {
           // drawer: isMobileScreen(context) ? Drawer() : null,
           backgroundColor: appController.activePrimaryTheme,
           body: SingleChildScrollView(
+
             controller: _scrollController,
             physics: const ClampingScrollPhysics(),
             // child: DesktopHome(),
