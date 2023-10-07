@@ -39,11 +39,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                       SkillTreeDesktop(),
                     ],
                   ),
-                  Container(
-                    height: screenSize(context).height * 0.7,
-                    width: double.infinity,
 
-                  )
                 ],
               ),
             ),

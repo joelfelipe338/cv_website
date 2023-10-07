@@ -7,7 +7,8 @@ import '../../../../controllers/app_controller.dart';
 import '../../../../utils/utils_functions.dart';
 
 class DownloadCVButton extends StatefulWidget {
-  const DownloadCVButton({Key? key}) : super(key: key);
+  final bool icon;
+  const DownloadCVButton({Key? key, this.icon = false}) : super(key: key);
 
   @override
   State<DownloadCVButton> createState() => _DownloadCVButtonState();
@@ -23,7 +24,26 @@ class _DownloadCVButtonState extends State<DownloadCVButton> {
       onTap: (){
         launchInBrowser(Uri.parse('https://drive.google.com/file/d/1mE0p8YLSvKrguWZZA0dvPzJYplbw2Fl0/view?usp=sharing'));
       },
-      child: Container(
+      child:widget.icon ? Container(
+        width: 80,
+        height: 50,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(color: appController.activeSecondaryTheme,width: 3),
+            color: Colors.transparent
+        ),
+        child: Center(child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("CV",
+              style: TextStyle(
+                  fontFamily: appController.activeFontFamily,
+                  fontWeight: FontWeight.bold, fontSize: 25, color: appController.activeSecondaryTheme),
+            ),
+            Icon(Icons.download,color: appController.activeSecondaryTheme,)
+          ],
+        )),
+      ) : Container(
         width: 200,
         height: 50,
         decoration: BoxDecoration(

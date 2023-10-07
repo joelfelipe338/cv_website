@@ -28,6 +28,7 @@ class _ApresentationMobileState extends State<ApresentationMobile> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 10,),
             Text(appController.myName,
               style: appController.activeThemeData.textTheme.displayMedium,),
             Text(appController.myProffision,
@@ -35,7 +36,7 @@ class _ApresentationMobileState extends State<ApresentationMobile> {
                 fontSize: 34.0,
                 color: appController.activeSecondaryTheme,
                 fontWeight: FontWeight.bold
-              )),
+              ), textAlign: TextAlign.center,),
             Text(appController.myDescription,
               style: appController.activeThemeData.textTheme.displaySmall,),
             Container(
@@ -45,16 +46,14 @@ class _ApresentationMobileState extends State<ApresentationMobile> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(width:screenSize(context).width * 0.1 ,),
                   GithubContact(),
                   WhatsappContact(),
                   LinkedinContact(),
-
-                  SizedBox(width:screenSize(context).width * 0.1 ,),
+                  DownloadCVButton(icon: true),
                 ],
               ),
             ),
-            DownloadCVButton(),
+
           ],
         );
       },

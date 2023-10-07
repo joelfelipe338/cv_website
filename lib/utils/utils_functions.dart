@@ -30,16 +30,16 @@ Future<void> launchInBrowser(Uri url) async {
 }
 
 bool isMobileScreen(BuildContext context) {
-  return MediaQuery.of(context).size.width < 800;
+  return MediaQuery.of(context).size.width < 950;
 }
 
 bool isTabScreen(BuildContext context) {
-  return MediaQuery.of(context).size.width > 800 &&
-  MediaQuery.of(context).size.width < 1200;
+  return MediaQuery.of(context).size.width > 950 &&
+  MediaQuery.of(context).size.width < 1600;
 }
 
 bool isDesktopScreen(BuildContext context) {
-  return MediaQuery.of(context).size.width >= 1200;
+  return MediaQuery.of(context).size.width >= 1600;
 }
 
 Size screenSize(BuildContext context){

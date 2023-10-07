@@ -32,11 +32,7 @@ class _TabletHomeState extends State<TabletHome> {
                     child: ApresentationTablet(),
                   ),
                   SkillTreeTablet(),
-                  Container(
-                    height: screenSize(context).height * 0.7,
-                    width: double.infinity,
 
-                  )
                 ],
               ),
             ),

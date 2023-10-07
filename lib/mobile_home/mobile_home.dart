@@ -25,18 +25,14 @@ class _MobileHomeState extends State<MobileHome> {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Column(
                 children: [
                   Container(
                     child: ApresentationMobile(),
                   ),
                   SkillTreeMobile(),
-                  Container(
-                    height: screenSize(context).height * 0.7,
-                    width: double.infinity,
 
-                  )
                 ],
               ),
             ),
