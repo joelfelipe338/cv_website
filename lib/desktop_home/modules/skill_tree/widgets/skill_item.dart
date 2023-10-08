@@ -51,7 +51,7 @@ class SkillItem extends StatelessWidget {
                   color: appController.activePrimaryTheme,
                 ),child: Icon(status == ItemStatus.done ? Icons.check_box
                 : status == ItemStatus.progress ? Icons.timelapse
-                : Icons.block, size: 28,)),)
+                : Icons.block, size: 28,color: appController.activeSecondaryTheme,)),)
         ],
       ),
     );
