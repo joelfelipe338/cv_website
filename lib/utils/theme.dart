@@ -28,6 +28,8 @@ class LightTheme {
   static String fontFamily = 'PatrickHand';
   static Color  primaryTheme = const Color(0xffffee99);
   static Color secondaryTheme = const Color.fromRGBO(18, 18, 18, 1.0);
+  static Color subColorTheme = const Color(0xffffee55);
+
 }
 
 class DarkTheme {
@@ -59,5 +61,6 @@ class DarkTheme {
   static String fontFamily = 'VT323';
   static const primaryTheme = Color.fromRGBO(18, 18, 18, 1.0);
   static Color secondaryTheme = const Color(0xff11c700);
+  static Color subColorTheme = Colors.grey;
 }
 

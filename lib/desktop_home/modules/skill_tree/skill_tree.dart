@@ -26,6 +26,7 @@ class SkillTreeDesktop extends StatelessWidget {
             Container(
                 margin: const EdgeInsets.only(top: 40),
                 decoration: BoxDecoration(
+                  color: appController.subColorTheme,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: appController.activeSecondaryTheme, width: 4)
                 ),
@@ -38,16 +39,8 @@ class SkillTreeDesktop extends StatelessWidget {
                   child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          SizedBox(height: 6,),
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: Text(appController.acquiredSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall,)),
-                              Expanded(
-                                  child: Text(appController.developingSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
-                              Expanded(
-                                  child: Text(appController.futureSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
-                            ],),
+                          SizedBox(height: 40,),
+
                           Row(
                             children: [
                               Expanded(child: Padding(
@@ -90,6 +83,28 @@ class SkillTreeDesktop extends StatelessWidget {
                   ),
                 )
             ),
+
+            Container(
+                width: 900,
+                child: Align(alignment: Alignment.topCenter,
+                child: Container(
+                height: 44,
+                margin: EdgeInsets.only(top: 40),
+            decoration: BoxDecoration(
+                color: appController.activePrimaryTheme,
+                borderRadius: BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10)),
+                border: Border.all(color: appController.activeSecondaryTheme, width: 4)
+            ),
+            child:  Row(
+              children: [
+                Expanded(
+                    child: Text(appController.acquiredSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall,)),
+                Expanded(
+                    child: Text(appController.developingSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
+                Expanded(
+                    child: Text(appController.futureSkills,textAlign: TextAlign.center,style: appController.activeThemeData.textTheme.displaySmall)),
+              ],),))),
+
             Container(
               width: 900,
               child: Align(alignment: Alignment.topCenter,

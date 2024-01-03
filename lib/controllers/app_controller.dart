@@ -33,6 +33,9 @@ abstract class AppControllerBase with Store {
   Color activeSecondaryTheme = LightTheme.secondaryTheme;
 
   @observable
+  Color subColorTheme = LightTheme.subColorTheme;
+
+  @observable
   String myName = TextDataPT.myName;
 
   @observable
@@ -74,12 +77,13 @@ abstract class AppControllerBase with Store {
   }
 
   @action
-  void setTheme({required Color primary,required Color secondary,required ThemeData theme, required String fontFamily, required bool lightTheme}){
+  void setTheme({required Color primary,required Color secondary,required ThemeData theme, required String fontFamily, required bool lightTheme, required subColorTheme}){
     activeSecondaryTheme = secondary;
     activePrimaryTheme = primary;
     activeThemeData = theme;
     activeFontFamily = fontFamily;
     activeLightTheme = lightTheme;
+    subColorTheme = subColorTheme;
   }
 
   void useEN(){

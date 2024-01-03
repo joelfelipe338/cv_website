@@ -16,6 +16,7 @@ changeTheme(){
       primary: appController.activeLightTheme ? DarkTheme.primaryTheme : LightTheme.primaryTheme,
       secondary: appController.activeLightTheme ? DarkTheme.secondaryTheme : LightTheme.secondaryTheme,
       fontFamily: appController.activeLightTheme ? DarkTheme.fontFamily : LightTheme.fontFamily,
+      subColorTheme: appController.activeLightTheme ? DarkTheme.subColorTheme : LightTheme.subColorTheme,
       lightTheme: !appController.activeLightTheme
   );
 

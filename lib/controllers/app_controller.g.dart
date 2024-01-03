@@ -122,6 +122,22 @@ mixin _$AppController on AppControllerBase, Store {
     });
   }
 
+  late final _$subColorThemeAtom =
+      Atom(name: 'AppControllerBase.subColorTheme', context: context);
+
+  @override
+  Color get subColorTheme {
+    _$subColorThemeAtom.reportRead();
+    return super.subColorTheme;
+  }
+
+  @override
+  set subColorTheme(Color value) {
+    _$subColorThemeAtom.reportWrite(value, super.subColorTheme, () {
+      super.subColorTheme = value;
+    });
+  }
+
   late final _$myNameAtom =
       Atom(name: 'AppControllerBase.myName', context: context);
 
@@ -287,7 +303,8 @@ mixin _$AppController on AppControllerBase, Store {
       required Color secondary,
       required ThemeData theme,
       required String fontFamily,
-      required bool lightTheme}) {
+      required bool lightTheme,
+      required dynamic subColorTheme}) {
     final _$actionInfo = _$AppControllerBaseActionController.startAction(
         name: 'AppControllerBase.setTheme');
     try {
@@ -296,7 +313,8 @@ mixin _$AppController on AppControllerBase, Store {
           secondary: secondary,
           theme: theme,
           fontFamily: fontFamily,
-          lightTheme: lightTheme);
+          lightTheme: lightTheme,
+          subColorTheme: subColorTheme);
     } finally {
       _$AppControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -312,6 +330,7 @@ activeThemeData: ${activeThemeData},
 activeFontFamily: ${activeFontFamily},
 activePrimaryTheme: ${activePrimaryTheme},
 activeSecondaryTheme: ${activeSecondaryTheme},
+subColorTheme: ${subColorTheme},
 myName: ${myName},
 myProffision: ${myProffision},
 myDescription: ${myDescription},
