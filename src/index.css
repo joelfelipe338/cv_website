@@ -124,33 +124,17 @@ img {
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--white);
-  transition: color 0.3s;
+  transition: opacity 0.3s;
+}
+
+.navbar-logo:hover {
+  opacity: 0.85;
 }
 
 .navbar.scrolled .navbar-logo {
   color: var(--navy);
 }
 
-.navbar-logo .logo-j {
-  color: var(--blue-primary);
-}
-
-.navbar-logo .logo-f {
-  color: var(--navy);
-}
-
-.navbar.scrolled .navbar-logo .logo-f {
-  color: var(--navy);
-}
-
-.navbar:not(.scrolled) .navbar-logo .logo-f {
-  color: var(--white);
-}
 
 .nav-links {
   display: flex;

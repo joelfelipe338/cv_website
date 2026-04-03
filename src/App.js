@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Logo from './components/Logo';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,9 +32,7 @@ function App() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <a href="#home" className="navbar-logo">
-            <span className="logo-j">j</span>
-            <span className="logo-f">F</span>
-            &nbsp;JUST FAST
+            <Logo height={44} darkBg={!scrolled} />
           </a>
           <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <li><a href="#home" onClick={() => setMenuOpen(false)}>Início</a></li>
@@ -452,7 +451,7 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-brand">
-              <h3><span className="logo-j">j</span>F JUST FAST</h3>
+              <Logo height={52} darkBg={true} />
               <p>
                 Desenvolvimento web e mobile com velocidade e qualidade.
                 Transformando ideias em soluções digitais de impacto.
